@@ -40,7 +40,6 @@ function SignupForm() {
         password,
         options: {
           data: { plan: 'free' },
-          emailRedirectTo: `${window.location.origin}/auth/callback?redirect=${encodeURIComponent(redirect)}`,
         },
       });
 
@@ -56,16 +55,6 @@ function SignupForm() {
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleGoogleSignup = async () => {
-    const supabase = createClient();
-    await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback?redirect=${encodeURIComponent(redirect)}`,
-      },
-    });
   };
 
   if (success) {
@@ -131,15 +120,6 @@ function SignupForm() {
             </Button>
           </form>
 
-          <div className="my-4 flex items-center gap-3">
-            <div className="flex-1 h-px bg-border" />
-            <span className="text-xs text-text-secondary">or</span>
-            <div className="flex-1 h-px bg-border" />
-          </div>
-
-          <Button variant="secondary" onClick={handleGoogleSignup} className="w-full">
-            Continue with Google
-          </Button>
         </Card>
 
         <p className="text-center text-sm text-text-secondary mt-4">

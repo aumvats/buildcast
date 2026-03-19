@@ -53,16 +53,6 @@ function LoginForm() {
     }
   };
 
-  const handleGoogleLogin = async () => {
-    const supabase = createClient();
-    await supabase.auth.signInWithOAuth({
-      provider: 'google',
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback?redirect=${encodeURIComponent(redirect)}`,
-      },
-    });
-  };
-
   return (
     <div className="min-h-screen bg-bg flex items-center justify-center px-4">
       <div className="w-full max-w-sm animate-fade-in-up">
@@ -108,15 +98,6 @@ function LoginForm() {
             </Button>
           </form>
 
-          <div className="my-4 flex items-center gap-3">
-            <div className="flex-1 h-px bg-border" />
-            <span className="text-xs text-text-secondary">or</span>
-            <div className="flex-1 h-px bg-border" />
-          </div>
-
-          <Button variant="secondary" onClick={handleGoogleLogin} className="w-full">
-            Continue with Google
-          </Button>
         </Card>
 
         <p className="text-center text-sm text-text-secondary mt-4">
