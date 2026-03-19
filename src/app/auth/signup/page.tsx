@@ -40,6 +40,7 @@ function SignupForm() {
         password,
         options: {
           data: { plan: 'free' },
+          emailRedirectTo: `${window.location.origin}/auth/callback`
         },
       });
 
