@@ -47,7 +47,7 @@ export function AddSiteModal({ open, onClose, onSiteAdded, siteCount, planLimit 
         return;
       }
 
-      const { error: insertError } = await supabase.from('sites').insert({
+      const { error: insertError } = await supabase.from('buildcast_sites').insert({
         user_id: user.id,
         name: name.trim(),
         address: location.displayName,

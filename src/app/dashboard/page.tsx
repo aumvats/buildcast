@@ -34,7 +34,7 @@ export default function DashboardPage() {
     setUserPlan(plan);
 
     const { data } = await supabase
-      .from('sites')
+      .from('buildcast_sites')
       .select('*')
       .order('created_at', { ascending: false });
 

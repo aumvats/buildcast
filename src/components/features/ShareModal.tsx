@@ -14,7 +14,7 @@ interface ShareModalProps {
 
 export function ShareModal({ open, onClose, shareToken, siteName }: ShareModalProps) {
   const [copied, setCopied] = useState(false);
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://buildcast-app.vercel.app';
   const shareUrl = `${appUrl}/site/${shareToken}/share`;
 
   const handleCopy = async () => {

@@ -15,7 +15,7 @@ async function getSiteByShareToken(shareToken: string) {
   const supabase = createClient(supabaseUrl, serviceKey);
 
   const { data } = await supabase
-    .from('sites')
+    .from('buildcast_sites')
     .select('*')
     .eq('share_token', shareToken)
     .single();

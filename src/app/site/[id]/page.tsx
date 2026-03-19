@@ -63,7 +63,7 @@ export default function SiteDetailPage() {
     async function load() {
       const supabase = createClient();
       const { data } = await supabase
-        .from('sites')
+        .from('buildcast_sites')
         .select('*')
         .eq('id', siteId)
         .single();
